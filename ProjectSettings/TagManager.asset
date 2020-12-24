@@ -7,6 +7,7 @@ TagManager:
   - MonsterSpawn
   - MonsterTarget
   - Key
+  - Floor
   layers:
   - Default
   - TransparentFX
