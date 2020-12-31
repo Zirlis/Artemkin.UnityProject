@@ -61,8 +61,8 @@ public class Player : MonoBehaviour
         eulerY = (transform.rotation.eulerAngles.y + X) % 360;        
 
         transform.rotation = Quaternion.Euler(0, eulerY, 0);
-        if (eulerX >= 60 && eulerX <= 90)
-            eulerX = 60;
+        if (eulerX >= 80 && eulerX <= 90)
+            eulerX = 80;
         if (eulerX <= 270 && eulerX >= 250)
             eulerX = 270;
 

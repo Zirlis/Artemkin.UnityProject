@@ -8,6 +8,9 @@ TagManager:
   - MonsterTarget
   - Key
   - Floor
+  - CanBeRaised
+  - Bone
+  - Hand
   layers:
   - Default
   - TransparentFX
