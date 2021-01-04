@@ -1,15 +1,16 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
-    private GameObject objectInHand;
-    [SerializeField] private bool inHand = false;
-    private float offset;
+    [NonSerialized] public GameObject objectInHand;
+    [SerializeField] public bool inHand = false;
+    [NonSerialized] public float offset;
     private float smooth = 1.5f;
-    private float maxDistance = 1.5f;    
+    [NonSerialized] public float maxDistance = 1.5f;    
     private bool canBeRaised = false;
     private float shiftMod = 0.5f;
-    private float oldDrag;
+    [NonSerialized] public float oldDrag;
     private float defaultDrag = 10f;
     Vector3 shift;
         

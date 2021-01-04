@@ -3,6 +3,7 @@
 public class OnTable : MonoBehaviour
 {
     [SerializeField] GameObject Door;
+    [SerializeField] Hand hand;
     [SerializeField] private float rotSpeed = -30f;
 
     [SerializeField] GameObject Bone1;
@@ -48,6 +49,13 @@ public class OnTable : MonoBehaviour
     {
         if(boneOnTable1 && boneOnTable2 && boneOnTable3 && boneOnTable4 && boneOnTable5)
         {
+            if (hand.inHand)
+            {                           
+                hand.inHand = false;
+                hand.objectInHand.GetComponent<Rigidbody>().useGravity = true;
+                hand.objectInHand.GetComponent<Rigidbody>().drag = hand.oldDrag;              
+            }
+
             Destroy(Bone1);
             Destroy(Bone2);
             Destroy(Bone3);
