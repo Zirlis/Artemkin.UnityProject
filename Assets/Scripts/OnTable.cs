@@ -17,6 +17,8 @@ public class OnTable : MonoBehaviour
     [SerializeField] bool boneOnTable3 = false;
     [SerializeField] bool boneOnTable4 = false;
     [SerializeField] bool boneOnTable5 = false;
+
+    private bool doorIsOpen = false;
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject == Bone1)
@@ -65,6 +67,11 @@ public class OnTable : MonoBehaviour
             if (Door.transform.rotation != Quaternion.Euler(-90, 0, 0))
             {
                 Door.transform.Rotate(Vector3.forward * rotSpeed * Time.deltaTime);
+                if (!doorIsOpen)
+                {
+                    doorIsOpen = true;
+                    Door.GetComponent<AudioSource>().Play();
+                }
             }
         }
     }

@@ -2,14 +2,14 @@
 
 public class Key : MonoBehaviour
 {
-    [SerializeField] GameObject Door;   
+    [SerializeField] GameObject Door;
     
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-        {            
-            Destroy(Door);
+        {
+            Door.GetComponent<AudioSource>().Play();
+            Destroy(Door, 3);
             Destroy(gameObject);
         }
     }

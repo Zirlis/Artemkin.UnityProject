@@ -13,12 +13,25 @@ public class Book : MonoBehaviour
     public bool door3WarRotated;
     public bool door4WarRotated;
 
+    private Animation openDoor1;
+    private Animation openDoor2;
+    private Animation openDoor3;
+    private Animation openDoor4;
 
-    float rotSpeed = 90f;
+    //float rotSpeed = 90f;
 
     [SerializeField] private bool canTouch = false;    
     [SerializeField] private bool action = false;
     public float time = 0;
+
+    private void Awake()
+    {
+        openDoor1 = Door1.GetComponent<Animation>();
+        openDoor2 = Door2.GetComponent<Animation>();
+        openDoor3 = Door3.GetComponent<Animation>();
+        openDoor4 = Door4.GetComponent<Animation>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -58,53 +71,53 @@ public class Book : MonoBehaviour
             door4WarRotated = true;
 
         while (action)
-        {            
+        {
             time += Time.deltaTime;
 
             if (door1WarRotated)
             {
-                Door1.transform.Rotate(Vector3.forward * -rotSpeed * Time.deltaTime);
+                openDoor1.Play("DoorAnimationLeft");
             }
-            else 
+            else
             {
-                Door1.transform.Rotate(Vector3.forward * rotSpeed * Time.deltaTime);
+                openDoor1.Play("DoorAnimationRight");
             }
 
             if (door2WarRotated)
             {
-                Door2.transform.Rotate(Vector3.forward * -rotSpeed * Time.deltaTime);
+                openDoor2.Play("DoorAnimationLeft");
             }
             else
             {
-                Door2.transform.Rotate(Vector3.forward * rotSpeed * Time.deltaTime);
+                openDoor2.Play("DoorAnimationRight");
             }
 
             if (door3WarRotated)
             {
-                Door3.transform.Rotate(Vector3.forward * -rotSpeed * Time.deltaTime);
+                openDoor3.Play("DoorAnimationLeft");
             }
             else
             {
-                Door3.transform.Rotate(Vector3.forward * rotSpeed * Time.deltaTime);
+                openDoor3.Play("DoorAnimationRight");
             }
 
             if (door4WarRotated)
             {
-                Door4.transform.Rotate(Vector3.forward * -rotSpeed * Time.deltaTime);
+                openDoor4.Play("DoorAnimationLeft");
             }
             else
             {
-                Door4.transform.Rotate(Vector3.forward * rotSpeed * Time.deltaTime);
+                openDoor4.Play("DoorAnimationRight");
             }
 
-            if (time >= 90 / rotSpeed)
+            if (time >= 1)
             {
                 action = false;
                 time = 0;
             }
             else
                 yield return null;
-        }                                     
+        }
     }
 
     void Update()

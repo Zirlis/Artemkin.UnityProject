@@ -11,6 +11,7 @@ TagManager:
   - CanBeRaised
   - Bone
   - Hand
+  - Room1
   layers:
   - Default
   - TransparentFX

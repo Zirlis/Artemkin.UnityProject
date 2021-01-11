@@ -40,7 +40,7 @@ public class Hand : MonoBehaviour
             offset = Vector3.Distance(objectInHand.transform.position, transform.position);
                                    
 
-            if (Input.GetKeyUp(KeyCode.E) || offset > maxDistance)
+            if (Input.GetKeyUp(KeyCode.Mouse0) || offset > maxDistance)
             {
                 inHand = false;
                 objectInHand.GetComponent<Rigidbody>().useGravity = true;                
@@ -49,9 +49,8 @@ public class Hand : MonoBehaviour
             
         }
 
-        if (Input.GetKey(KeyCode.E) && canBeRaised)
-        {            
-            //objectInHand = GameObject.FindWithTag("CanBeRaised");
+        if (Input.GetKey(KeyCode.Mouse0) && canBeRaised)
+        {               
             objectInHand.GetComponent<Rigidbody>().useGravity = false;            
             oldDrag = objectInHand.GetComponent<Rigidbody>().drag;
             objectInHand.GetComponent<Rigidbody>().drag = defaultDrag;

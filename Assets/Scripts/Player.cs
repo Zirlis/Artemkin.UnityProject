@@ -5,10 +5,10 @@ public class Player : MonoBehaviour
 	public static Player inst;
 
     [Header("Move")] 
-	[SerializeField] private float speed = 16f;
-	[SerializeField] private float rotSpeed = 120f;
+	[SerializeField] public float speed = 16f;
+	[SerializeField] public float rotSpeed = 120f;
 	[SerializeField] private float modBackSpeed = 0.75f;
-    [SerializeField] private float forceOfJump = 200f;
+    [SerializeField] public float forceOfJump = 200f;
     [SerializeField] private float jumpCoolDown = 1f;
     [SerializeField] private float eulerY;
     [SerializeField] private float eulerX;
